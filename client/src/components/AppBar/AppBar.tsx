@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
 import BasicMenu from '../Menu/Menu';
+import { ButtonTypeEnum } from '../Menu/MenuButton'
 
 interface ButtonAppBarProps {
   match?: any
@@ -16,11 +17,12 @@ export default function ButtonAppBar(props: ButtonAppBarProps) {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          <BasicMenu />
+          <BasicMenu buttonType={ButtonTypeEnum.ICONBUTTON} />
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             News
           </Typography>
           <Button color="inherit">Login</Button>
+          <BasicMenu buttonType={ButtonTypeEnum.BUTTON} />
         </Toolbar>
       </AppBar>
     </Box>
