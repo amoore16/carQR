@@ -9,6 +9,7 @@ export enum ButtonTypeEnum {
 
 interface MenuButtonProps {
   buttonType: ButtonTypeEnum;
+  title?: string;
   open: boolean;
   handleButtonClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
@@ -23,8 +24,11 @@ export default function MenuButton(props: MenuButtonProps) {
           aria-haspopup="true"
           aria-expanded={props.open ? "true" : undefined}
           onClick={(event) => props.handleButtonClick(event)}
+          sx={{ mr: 2 }}
+          title="Login"
+          color="inherit"
         >
-          Login
+          {props.title}
         </Button>
       )}
       {buttonType === ButtonTypeEnum.ICONBUTTON && (
@@ -35,6 +39,7 @@ export default function MenuButton(props: MenuButtonProps) {
           aria-haspopup="true"
           aria-expanded={props.open ? "true" : undefined}
           onClick={(event) => props.handleButtonClick(event)}
+          sx={{ mr: 2 }}
         >
           <MenuIcon />
         </IconButton>
