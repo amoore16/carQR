@@ -2,7 +2,7 @@ import * as React from "react";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import MenuButton, { ButtonTypeEnum } from "./MenuButton";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 interface BasicMenuProps {
   buttonType: ButtonTypeEnum;
@@ -48,8 +48,13 @@ export default function BasicMenu(props: BasicMenuProps) {
         }}
       >
         {props.menuItems.map((menuItem, i) => (
-          <MenuItem onClick={handleClose} key={i}>
-            <NavLink to={menuItem.to}>{menuItem.name}</NavLink>
+          <MenuItem
+            onClick={handleClose}
+            key={i}
+            component={Link}
+            to={menuItem.to}
+          >
+            {menuItem.name}
           </MenuItem>
         ))}
       </Menu>

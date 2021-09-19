@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 import BasicMenu from "../Menu/Menu";
 import { ButtonTypeEnum } from "../Menu/MenuButton";
 
+
 interface ButtonAppBarProps {
   match?: any;
 }
@@ -47,7 +48,7 @@ export default function ButtonAppBar(props: ButtonAppBarProps) {
               title="MY ACCOUNT"
             />
           ) : (
-            <Button color="inherit"><Link to="/login">LOGIN</Link></Button>
+            <Button color="inherit" component={Link} to="/login">LOGIN</Button>
           )}
         </Toolbar>
       </AppBar>
