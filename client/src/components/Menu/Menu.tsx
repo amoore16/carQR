@@ -1,10 +1,8 @@
 import * as React from "react";
-import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import MenuIcon from "@mui/icons-material/Menu";
 import MenuButton, { ButtonTypeEnum } from "./MenuButton";
-import { MenuItemProps } from "material-ui";
+import { NavLink } from "react-router-dom";
 
 interface BasicMenuProps {
   buttonType: ButtonTypeEnum;
@@ -14,6 +12,7 @@ interface BasicMenuProps {
 
 interface menuItem {
   name: string;
+  to: string;
   // onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
@@ -22,7 +21,7 @@ export default function BasicMenu(props: BasicMenuProps) {
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    console.log('handling click', event)
+    console.log("handling click", event);
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
@@ -33,12 +32,12 @@ export default function BasicMenu(props: BasicMenuProps) {
     buttonType: props.buttonType,
     open: open,
     handleButtonClick: handleClick,
-    title: props.title
+    title: props.title,
   };
 
   return (
     <div>
-      <MenuButton {...menuButtonProps}/>
+      <MenuButton {...menuButtonProps} />
       <Menu
         id="basic-menu"
         anchorEl={anchorEl}
@@ -48,7 +47,11 @@ export default function BasicMenu(props: BasicMenuProps) {
           "aria-labelledby": "basic-button",
         }}
       >
-      {props.menuItems.map((menuItem) => <MenuItem onClick={handleClose}>{menuItem.name}</MenuItem>)}
+        {props.menuItems.map((menuItem, i) => (
+          <MenuItem onClick={handleClose} key={i}>
+            <NavLink to={menuItem.to}>{menuItem.name}</NavLink>
+          </MenuItem>
+        ))}
       </Menu>
     </div>
   );

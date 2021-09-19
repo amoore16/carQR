@@ -1,11 +1,23 @@
 import "./App.css";
-import MainView from './components/Main/Main'
+import { Switch, Route } from "react-router-dom";
+
+import Home from "./modules/Home/Home";
+import Login from "./modules/Login/Login";
+import ButtonAppBar from "./components/AppBar/AppBar";
 
 function App() {
   return (
-      <div className="App">
-        <MainView />
-      </div>
+    <div>
+      <ButtonAppBar />
+      <Switch>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route exact path="/">
+          <Home />
+        </Route>
+      </Switch>
+    </div>
   );
 }
 

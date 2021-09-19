@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import { Link } from 'react-router-dom';
 
 import BasicMenu from "../Menu/Menu";
 import { ButtonTypeEnum } from "../Menu/MenuButton";
@@ -14,16 +15,16 @@ interface ButtonAppBarProps {
 
 export default function ButtonAppBar(props: ButtonAppBarProps) {
   const profileMenuItems = [
-    { name: "Profile" },
-    { name: "Your Car" },
-    { name: "Settings" },
-    { name: "Logout" },
+    { name: "Profile", to: "/Profile" },
+    { name: "Your Car", to: '/Car' },
+    { name: "Settings", to: "/Settings"},
+    { name: "Logout", to: "/Logout"},
   ];
 
   const navigationMenuItems = [
-    { name: "Home" },
-    { name: "Gallery" },
-    { name: "Meetups" },
+    { name: "Home", to: "/"},
+    { name: "Gallery", to: "/Gallery" },
+    { name: "Meetups", to: "/Meetups" },
   ];
 
   const isLoggedIn: boolean = false;
@@ -46,7 +47,7 @@ export default function ButtonAppBar(props: ButtonAppBarProps) {
               title="MY ACCOUNT"
             />
           ) : (
-            <Button color="inherit">LOGIN</Button>
+            <Button color="inherit"><Link to="/login">LOGIN</Link></Button>
           )}
         </Toolbar>
       </AppBar>
