@@ -4,11 +4,12 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 import BasicMenu from "../Menu/Menu";
 import { ButtonTypeEnum } from "../Menu/MenuButton";
 
+import { useLocation, useParams } from "react-router-dom";
 
 interface ButtonAppBarProps {
   match?: any;
@@ -17,18 +18,22 @@ interface ButtonAppBarProps {
 export default function ButtonAppBar(props: ButtonAppBarProps) {
   const profileMenuItems = [
     { name: "Profile", to: "/Profile" },
-    { name: "Your Car", to: '/Car' },
-    { name: "Settings", to: "/Settings"},
-    { name: "Logout", to: "/Logout"},
+    { name: "Your Car", to: "/Car" },
+    { name: "Settings", to: "/Settings" },
+    { name: "Logout", to: "/Logout" },
   ];
 
   const navigationMenuItems = [
-    { name: "Home", to: "/"},
+    { name: "Home", to: "/" },
     { name: "Gallery", to: "/Gallery" },
     { name: "Meetups", to: "/Meetups" },
   ];
 
   const isLoggedIn: boolean = false;
+
+  // let { url, path } = useRouteMatch()
+  // console.log(url, path )
+  let { pathname } = useLocation();
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -38,8 +43,8 @@ export default function ButtonAppBar(props: ButtonAppBarProps) {
             buttonType={ButtonTypeEnum.ICONBUTTON}
             menuItems={navigationMenuItems}
           />
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1}}>
+            {pathname.length > 1 ? pathname.slice(1).toLocaleUpperCase() : "HOME"}
           </Typography>
           {isLoggedIn ? (
             <BasicMenu
@@ -48,7 +53,9 @@ export default function ButtonAppBar(props: ButtonAppBarProps) {
               title="MY ACCOUNT"
             />
           ) : (
-            <Button color="inherit" component={Link} to="/login">LOGIN</Button>
+            <Button color="inherit" component={Link} to="/login">
+              LOGIN
+            </Button>
           )}
         </Toolbar>
       </AppBar>

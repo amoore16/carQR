@@ -1,13 +1,12 @@
-import { Container, Paper } from "@mui/material";
-
 import * as React from "react";
+import { Container } from "@mui/material";
+
+import Paper from "../../components/PaperBox/PaperBox";
 
 export default function Home() {
   return (
-  <Container>
-    <Paper elevation={3}>
-    <h1>Home</h1>
-    </Paper>
-  </Container>
-    )
+    <Container>
+      <Paper title={"Home"} subTitle={"Welcome!"} />
+    </Container>
+  );
 }
