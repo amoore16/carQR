@@ -39,7 +39,7 @@ export default function ButtonAppBar(props: ButtonAppBarProps) {
             menuItems={navigationMenuItems}
           />
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            News
+          
           </Typography>
           {isLoggedIn ? (
             <BasicMenu
