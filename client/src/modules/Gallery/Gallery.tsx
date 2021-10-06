@@ -27,7 +27,7 @@ export default function Gallery() {
           Get Pictures
         </Button>
 
-        <ImageList variant="masonry" cols={3} gap={8}>
+        <ImageList variant="masonry" cols={4} gap={8}>
           {itemData &&
             itemData.map((item: any) => (
               <ImageListItem key={item.post.id}>

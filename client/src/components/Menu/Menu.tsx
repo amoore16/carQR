@@ -21,7 +21,6 @@ export default function BasicMenu(props: BasicMenuProps) {
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    console.log("handling click", event);
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
