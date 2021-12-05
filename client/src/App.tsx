@@ -5,7 +5,7 @@ import { Switch, Route } from "react-router-dom";
 import Home from "./modules/Home/Home";
 import Login from "./modules/Login/Login";
 import ButtonAppBar from "./components/AppBar/AppBar";
-import { Container, Box } from "@mui/material";
+import { Container } from "@mui/material";
 import { ThemeProvider, createTheme } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 import Signup from "./modules/Signup/Signup";

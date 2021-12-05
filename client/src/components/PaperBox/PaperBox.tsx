@@ -2,7 +2,7 @@ import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import { Typography } from "@mui/material";
-import { Children, ReactElement } from "react";
+import { ReactElement } from "react";
 
 interface PaperBoxProps {
   title?: string;

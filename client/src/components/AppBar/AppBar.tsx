@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import BasicMenu from "../Menu/Menu";
 import { ButtonTypeEnum } from "../Menu/MenuButton";
 
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 interface ButtonAppBarProps {
   match?: any;
@@ -30,9 +30,6 @@ export default function ButtonAppBar(props: ButtonAppBarProps) {
   ];
 
   const isLoggedIn: boolean = false;
-
-  // let { url, path } = useRouteMatch()
-  // console.log(url, path )
   let { pathname } = useLocation();
 
   return (
@@ -43,8 +40,10 @@ export default function ButtonAppBar(props: ButtonAppBarProps) {
             buttonType={ButtonTypeEnum.ICONBUTTON}
             menuItems={navigationMenuItems}
           />
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1}}>
-            {pathname.length > 1 ? pathname.slice(1).toLocaleUpperCase() : "HOME"}
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            {pathname.length > 1
+              ? pathname.slice(1).toLocaleUpperCase()
+              : "HOME"}
           </Typography>
           {isLoggedIn ? (
             <BasicMenu
